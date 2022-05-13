@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import ProductPage from "./components/ProductPage";
 import ProductsContext from "./context/ProductsContext";
+import Footer from "./components/Footer";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/:id" element={<ProductPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ProductsContext.Provider>
   );

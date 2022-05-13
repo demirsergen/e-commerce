@@ -1,5 +1,7 @@
 :root {
   --btn-hover: rgb(243, 243, 243);
+  --max-container-width: 1500px;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -10,9 +12,14 @@
 
 body {
   max-width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
+
 
 a {
   text-decoration: none;
@@ -27,19 +34,25 @@ button:hover {
 
 
 /* Navbar Component */
+
+.nav__wrapper {
+  width: 100vw;
+}
 nav {
-  width: 100%;
-  padding: 1em 5em;
+  width: var(--max-container-width);
+  margin: 0 auto;
+  padding: 1em 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2em;
+  background: transparent;
 }
-
 nav a {
   text-decoration: none;
   color: black;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
 .logo {
@@ -70,47 +83,58 @@ nav a {
 
 /* Hero Component */
 
-.hero__outerContainer {
+.hero__wrapper {
   width: 100vw;
-  height: 92vh;
-  display: flex;
-position: relative;
-}
-
-.hero__outerContainer .center {
-  width: 100%;
-  margin: 0 auto;
-  background: url('https://images.unsplash.com/photo-1561715276-a2d087060f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+  background: orange;
+  background-position: center ;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  
 }
 
-.hero__outerContainer .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 5; 
-  background: rgba(0,0,0, .1);
-  display: grid;
-  place-items: center;
+.hero__outerContainer {
+  width: var(--max-container-width);
+  margin: 0 auto;
+  padding: 1.5em 0;
+  height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.hero__outerContainer .overlay button {
-  padding: 15px 25px;
-  border: none;
-  outline: none;
-  background: white;
+.hero__outerContainer-left {
+  flex: 1;
+  height: 300px;
+  color:black;
+  max-width: 70ch;
+
+}
+
+.hero__outerContainer-left h1 {
+  font-size:3rem;
+}
+
+.hero__outerContainer-left p {
+  margin: 2em 0;
+  font-size: 1.2rem;
+}
+
+.hero__outerContainer-left button {
+  padding: 10px 15px;
   cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
+}
+.hero__outerContainer-right {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.hero__outerContainer .overlay button:hover {
-  background-color:var(--btn-hover);
+.hero__outerContainer-right img {
+  max-width: 100%;
 }
 
 /* Login Component */
@@ -143,10 +167,10 @@ position: relative;
 
 /* Products Component */
 .products__outer-container {
-  max-width: 100%;
+  width: 100vw;
   margin: 0 auto;
-  padding: 1em 2em;
-  background-color: rgb(238, 238, 238);
+  padding: 1em 0;
+  background-color: rgb(255, 228, 164);
 }
 
 .products__outer-container h1 {
@@ -166,6 +190,7 @@ position: relative;
   cursor: pointer;
   border: .5px solid gray;
   background-color: white;
+  
 }
 
 .categories__container button:hover {
@@ -173,7 +198,8 @@ position: relative;
 }
 
 .products__container {
-  max-width: 100%;
+  max-width: var(--max-container-width);
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -191,7 +217,7 @@ position: relative;
 /* Product Component */
 
 .product__container {
-  width: 300px;
+  width: 335px;
   border: .5px solid gray;
   padding: 2em 1em;
   display: flex;
@@ -228,7 +254,8 @@ position: relative;
 /* ProductPage Component */
 
 .productpage__outer-container {
-  max-width: 100%;
+  max-width: var(--max-container-width);
+  margin: 0 auto;
   padding: 5em 3em;
   display: flex;
   justify-content: center;
@@ -256,4 +283,13 @@ position: relative;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+
+/* Footer Component */
+
+.footer__outer-container {
+  width: 100vw;
+  padding: 1.5em 2em;
+  background: rgb(63, 113, 213);
 }
