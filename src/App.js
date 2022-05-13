@@ -29,7 +29,15 @@ function App() {
   }, []);
   return (
     <ProductsContext.Provider
-      value={{ products, filter, isLoading, setIsLoading, setFilter, cart }}
+      value={{
+        products,
+        filter,
+        isLoading,
+        setIsLoading,
+        setFilter,
+        cart,
+        setCart,
+      }}
     >
       <BrowserRouter>
         <Navbar />

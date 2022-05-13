@@ -293,3 +293,32 @@ nav a {
   padding: 1.5em 2em;
   background: rgb(63, 113, 213);
 }
+
+/* Cart Component */
+
+.cart__wrapper {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.cart__outerContainer {
+  width: var(--max-container-width);
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+/* CartItem Component */
+
+.cartItem__wrapper {
+  max-width: 800px;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5em;
+  border: 1px solid gray;
+}
+
+.cartItem__left img {
+  max-width: 80px;
+}
