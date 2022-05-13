@@ -1,24 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import Product from "./Product";
+import ProductsContext from "../context/ProductsContext";
 import "../App.css";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [filter, setFilter] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const response = await fetch("https://fakestoreapi.com/products");
-      if (true) {
-        setProducts(await response.clone().json());
-        setFilter(await response.json());
-      }
-      setIsLoading(false);
-    };
-
-    getProducts();
-  }, []);
+  const { products, filter, isLoading, setIsLoading, setFilter } =
+    useContext(ProductsContext);
 
   const filterData = (category) => {
     setIsLoading(true);
@@ -34,7 +21,6 @@ const Products = () => {
   }
   return (
     <div className="products__outer-container">
-      <h1>Products</h1>
       <div className="categories__container">
         <button onClick={() => setFilter(products)}>All</button>
         <button onClick={() => filterData("women's clothing")}>

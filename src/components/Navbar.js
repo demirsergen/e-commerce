@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import ProductsContext from "../context/ProductsContext";
 import "../App.css";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
-  const cartItemQty = useSelector((state) => state.cart.value.length);
+  const { cart } = useContext(ProductsContext);
   return (
     <nav>
       <div className="navbar__left">
-        <h2>E-commerce</h2>
-        <Link to="/">Dashboard</Link>
+        <img
+          src={require("../assets/images/logo.png")}
+          alt=""
+          className="logo"
+        />
+        <Link to="/">Homepage</Link>
       </div>
       <div className="navbar__right">
         <Link to="/cart" className="cart__button">
-          {`Cart (${cartItemQty})`}
+          {`Cart (${cart.length})`}
         </Link>
         <Link to="/login">Login</Link>
       </div>
