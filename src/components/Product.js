@@ -4,11 +4,7 @@ import ProductsContext from "../context/ProductsContext";
 import "../App.css";
 
 const Product = ({ product }) => {
-  const { setCart, cart } = useContext(ProductsContext);
-
-  const addToCart = (product) => {
-    setCart((prev) => [...prev, product]);
-  };
+  const { setCart, addToCart } = useContext(ProductsContext);
 
   return (
     <div className="products__wrapper">

@@ -3,7 +3,7 @@ import ProductsContext from "../context/ProductsContext";
 import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
-  const { products } = useContext(ProductsContext);
+  const { products, addToCart } = useContext(ProductsContext);
   let { id } = useParams();
   const currentProducts = products.filter((product) => {
     return product.id == id;
@@ -18,7 +18,7 @@ const ProductPage = () => {
         <h2>{currentProduct.title}</h2>
         <p>{currentProduct.description}</p>
         <p>${currentProduct.price}</p>
-        <button>Buy Now!</button>
+        <button onClick={() => addToCart(currentProduct)}>Buy Now!</button>
       </div>
     </div>
   );
