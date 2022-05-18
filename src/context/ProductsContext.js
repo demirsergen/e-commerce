@@ -10,7 +10,9 @@ export const ProductsContextProvider = ({ children }) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await fetch("https://fakestoreapi.com/products");
+      const response = await fetch("https://fakestoreapi.com/products", {
+        "Access-Control-Allow-Origin": "http://localhost:3000/",
+      });
       if (true) {
         setProducts(await response.clone().json());
         setFilter(await response.json());
@@ -21,9 +23,15 @@ export const ProductsContextProvider = ({ children }) => {
     getProducts();
   }, []);
 
-  const addToCart = (product) => {
-    setCart((prev) => [...prev, product]);
-  };
+  const addToCart = (product) =>
+    setCart((prev) => {
+      const productToAdd = {
+        product,
+        qty: 1,
+      };
+      return [...prev, productToAdd];
+    });
+
   return (
     <ProductsContext.Provider
       value={{
