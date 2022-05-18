@@ -23,14 +23,18 @@ export const ProductsContextProvider = ({ children }) => {
     getProducts();
   }, []);
 
-  const addToCart = (product) =>
-    setCart((prev) => {
-      const productToAdd = {
-        product,
-        qty: 1,
-      };
-      return [...prev, productToAdd];
-    });
+  const addToCart = (product) => {
+    const exist = cart.find((x) => x.id === product.id);
+    if (exist) {
+      setCart(
+        cart.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, qty: 1 }]);
+    }
+  };
 
   return (
     <ProductsContext.Provider
