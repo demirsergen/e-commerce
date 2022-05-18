@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductsContext from "../context/ProductsContext";
 import "../App.css";
 import CartItem from "./CartItem";
@@ -9,10 +9,17 @@ const Cart = () => {
   const [totalItemQty, setTotalItemQty] = useState(0);
   const [totalItemValue, setTotalItemValue] = useState(0);
 
+  useEffect(() => {
+    calculateTotalCartValue();
+  }, [totalItemQty]);
+
   const calculateTotalCartValue = () => {
+    let total = 0;
     cart.map((item) => {
-      setTotalItemValue((prev) => (prev += item.price));
+      let itemValue = item.price * item.qty;
+      total += itemValue;
     });
+    setTotalItemValue(total);
   };
 
   const increaseQuantity = (id) => {
