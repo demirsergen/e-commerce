@@ -7,11 +7,16 @@ const Cart = () => {
   const { cart, totalItemQty } = useContext(ProductsContext);
   const [totalItemValue, setTotalItemValue] = useState(0);
   const [totalTax, setTotalTax] = useState(0);
-  // const [afterTaxTotal, setAfterTaxTotal]
+  const [cartItems, setCartItems] = useState(null);
 
   useEffect(() => {
     calculateTotalCartValue();
   }, [totalItemValue, totalItemQty]);
+
+  useEffect(() => {
+    const cartItems = localStorage.getItem("cart");
+    setCartItems(JSON.parse(cartItems));
+  }, [cart]);
 
   const calculateTotalCartValue = () => {
     let total = 0;

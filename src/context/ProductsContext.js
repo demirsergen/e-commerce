@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 const ProductsContext = createContext({});
 
 export const ProductsContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [totalItemQty, setTotalItemQty] = useState(0);
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState([]);
@@ -24,6 +24,10 @@ export const ProductsContextProvider = ({ children }) => {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart, totalItemQty]);
+
   const addToCart = (product) => {
     const exist = cart.find((x) => x.id === product.id);
     if (exist) {
@@ -32,8 +36,10 @@ export const ProductsContextProvider = ({ children }) => {
           x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
+      setTotalItemQty((prev) => (prev += 1));
     } else {
       setCart([...cart, { ...product, qty: 1 }]);
+      setTotalItemQty((prev) => (prev += 1));
     }
   };
 
@@ -49,7 +55,6 @@ export const ProductsContextProvider = ({ children }) => {
     console.log(id);
     const currentProduct = cart.filter((x) => id === x.id);
     setTotalItemQty((prev) => (prev += 1));
-    console.log(currentProduct);
     currentProduct[0].qty += 1;
   };
   const decreaseQuantity = (id) => {
