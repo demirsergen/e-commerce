@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import ProductsContext from "../context/ProductsContext";
+
 import "../App.css";
 
-const CartItem = ({ item, decreaseQuantity, increaseQuantity }) => {
+const CartItem = ({ item }) => {
+  const { decreaseQuantity, increaseQuantity, removeFromCart } =
+    useContext(ProductsContext);
+  if (item.qty === 0) return null;
   return (
     <>
       <div className="cartItem__wrapper">
@@ -10,8 +15,11 @@ const CartItem = ({ item, decreaseQuantity, increaseQuantity }) => {
         </div>
         <div className="cartItem__right">
           <p>{item.title}</p>
-          <p>${item.price}</p>
+          <p>${item.price.toFixed(2)}</p>
         </div>
+        <button className="remove__button" onClick={() => removeFromCart(item)}>
+          Remove
+        </button>
         <div className="counter__wrapper">
           <button onClick={() => decreaseQuantity(item.id)}>-</button>
           <span>{item.qty}</span>

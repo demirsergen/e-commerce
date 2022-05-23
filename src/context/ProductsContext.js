@@ -4,6 +4,7 @@ const ProductsContext = createContext({});
 
 export const ProductsContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [totalItemQty, setTotalItemQty] = useState(0);
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +37,30 @@ export const ProductsContextProvider = ({ children }) => {
     }
   };
 
+  const removeFromCart = (product) => {
+    const exist = cart.find((x) => x.id === product.id);
+    if (exist) {
+      const newCart = cart.filter((x) => x !== exist);
+      setCart(newCart);
+    }
+  };
+
+  const increaseQuantity = (id) => {
+    console.log(id);
+    const currentProduct = cart.filter((x) => id === x.id);
+    setTotalItemQty((prev) => (prev += 1));
+    console.log(currentProduct);
+    currentProduct[0].qty += 1;
+  };
+  const decreaseQuantity = (id) => {
+    const currentProduct = cart.filter((x) => id === x.id);
+    setTotalItemQty((prev) => (prev -= 1));
+    currentProduct[0].qty -= 1;
+    if (currentProduct[0].qty === 0) {
+      removeFromCart(currentProduct[0]);
+    }
+  };
+
   return (
     <ProductsContext.Provider
       value={{
@@ -47,6 +72,10 @@ export const ProductsContextProvider = ({ children }) => {
         cart,
         setCart,
         addToCart,
+        increaseQuantity,
+        decreaseQuantity,
+        removeFromCart,
+        totalItemQty,
       }}
     >
       {children}

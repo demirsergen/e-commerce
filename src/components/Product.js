@@ -4,7 +4,7 @@ import ProductsContext from "../context/ProductsContext";
 import "../App.css";
 
 const Product = ({ product }) => {
-  const { setCart, addToCart } = useContext(ProductsContext);
+  const { addToCart } = useContext(ProductsContext);
 
   return (
     <div className="products__wrapper">
@@ -12,7 +12,7 @@ const Product = ({ product }) => {
         <img src={product.image} alt={product.title} />
         <p>{product.title.substr(0, 30)}...</p>
         <p>
-          <strong>Price:</strong> ${product.price}
+          <strong>Price:</strong> ${product.price.toFixed(2)}
         </p>
         <div className="buttons__container">
           <button className="product__btn" onClick={() => addToCart(product)}>

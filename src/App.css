@@ -37,6 +37,7 @@ button:hover {
 
 .nav__wrapper {
   width: 100vw;
+  background-color: rgb(255, 228, 164);
 }
 nav {
   width: var(--max-container-width);
@@ -294,12 +295,18 @@ nav a {
   background: rgb(63, 113, 213);
 }
 
+.footer__wrapper {
+  max-width: var(--max-container-width);
+  padding: 1em 0;
+  margin: 0 auto;
+}
+
 /* Cart Component */
 
 .cart__wrapper {
   width: 100vw;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 85vh;
   padding: 2em 0;
 }
 
@@ -310,7 +317,7 @@ nav a {
 }
 
 .cart__outerContainer {
-  width: 900px;
+  width: 1100px;
   margin: 0 auto;
   border: 2px solid gray;
   padding: 1em;
@@ -320,7 +327,17 @@ nav a {
   text-align: right;
   padding: 1em 0;
   border-top: .5px solid gray;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
 }
+
+.totalValueContainer .total {
+  border-top: .5px solid gray;
+  padding: 5px 0;
+  letter-spacing: .8px;
+}
+
 /* CartItem Component */
 
 .cartItems__title {
@@ -335,7 +352,7 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.5em;
+  gap: 2em;
 }
 
 .cartItem__left img {
@@ -352,7 +369,13 @@ nav a {
 
 .cartItem__right p {
   font-size: 1.5rem;
-  max-width: 30ch;
+  max-width: 45ch;
+}
+
+.remove__button {
+  padding: 10px 10px;
+  cursor: pointer;
+  border: none;
 }
 
 /* Counter Component */
