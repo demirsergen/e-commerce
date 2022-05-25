@@ -11,9 +11,7 @@ const Product = ({ product }) => {
       <div className="product__container">
         <img src={product.image} alt={product.title} />
         <p>{product.title.substr(0, 30)}...</p>
-        <p>
-          <strong>Price:</strong> ${product.price.toFixed(2)}
-        </p>
+        <h3>${product.price.toFixed(2)}</h3>
         <div className="buttons__container">
           <button className="product__btn" onClick={() => addToCart(product)}>
             Add to Cart

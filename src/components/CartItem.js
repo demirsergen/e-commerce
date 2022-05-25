@@ -15,7 +15,7 @@ const CartItem = ({ item }) => {
         </div>
         <div className="cartItem__right">
           <p>{item.title}</p>
-          <p>${item.price.toFixed(2)}</p>
+          <h3>${item.price.toFixed(2)}</h3>
         </div>
         <button className="remove__button" onClick={() => removeFromCart(item)}>
           Remove

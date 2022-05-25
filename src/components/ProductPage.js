@@ -17,7 +17,7 @@ const ProductPage = () => {
       <div className="productpage__info-container">
         <h2>{currentProduct.title}</h2>
         <p>{currentProduct.description}</p>
-        <p>${currentProduct.price}</p>
+        <h2>${currentProduct.price.toFixed(2)}</h2>
         <button onClick={() => addToCart(currentProduct)}>Buy Now!</button>
       </div>
     </div>
