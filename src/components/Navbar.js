@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
         <div className="navbar__right">
           <Link to="/cart" className="cart__button">
-            {`Cart (${cart.length})`}
+            {`Cart (${cart?.length})`}
           </Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>

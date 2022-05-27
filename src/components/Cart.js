@@ -28,7 +28,7 @@ const Cart = () => {
     setTotalTax((totalItemValue * 6.5) / 100);
   };
 
-  if (cart.length === 0) {
+  if (cart?.length === 0) {
     return (
       <div className="cart__wrapper">
         <div className="cart__outerContainer">Your cart is empty.</div>

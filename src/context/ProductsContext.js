@@ -3,7 +3,9 @@ import { createContext, useEffect, useState } from "react";
 const ProductsContext = createContext({});
 
 export const ProductsContextProvider = ({ children }) => {
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
   const [totalItemQty, setTotalItemQty] = useState(0);
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState([]);
