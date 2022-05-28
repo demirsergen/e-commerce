@@ -1,6 +1,6 @@
 :root {
   --btn-hover: rgb(243, 243, 243);
-  --max-container-width: 1200px;
+  --max-container-width: 1300px;
   scroll-behavior: smooth;
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100vw;
   height: 100vh;
 }
@@ -226,7 +226,7 @@ nav a {
 /* Product Component */
 
 .product__container {
-  width: 335px;
+  width: 300px;
   border: .5px solid gray;
   padding: 2em 1em;
   display: flex;
@@ -238,8 +238,8 @@ nav a {
 }
 
 .product__container img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
 }
 
 .buttons__container {
@@ -269,7 +269,6 @@ nav a {
   display: flex;
   justify-content: center;
   gap: 5em;
-  border: 1px solid red;
 }
 
 .productpage__image-container {
@@ -307,6 +306,7 @@ nav a {
   width: 100vw;
   padding: 1.5em 2em;
   background-color: rgb(255, 247, 227);
+  margin-top: auto;
 }
 
 .footer__wrapper {

@@ -6,7 +6,7 @@ const ProductPage = () => {
   const { products, addToCart } = useContext(ProductsContext);
   let { id } = useParams();
   const currentProducts = products.filter((product) => {
-    return product.id == id;
+    return product.id === parseInt(id);
   });
   const currentProduct = currentProducts[0];
   return (
