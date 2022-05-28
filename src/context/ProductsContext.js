@@ -14,7 +14,7 @@ export const ProductsContextProvider = ({ children }) => {
   useEffect(() => {
     const getProducts = async () => {
       const response = await fetch("https://fakestoreapi.com/products", {
-        "Access-Control-Allow-Origin": "http://localhost:3000/",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
       });
       if (true) {
         setProducts(await response.clone().json());
@@ -54,11 +54,11 @@ export const ProductsContextProvider = ({ children }) => {
   };
 
   const increaseQuantity = (id) => {
-    console.log(id);
     const currentProduct = cart.filter((x) => id === x.id);
     setTotalItemQty((prev) => (prev += 1));
     currentProduct[0].qty += 1;
   };
+
   const decreaseQuantity = (id) => {
     const currentProduct = cart.filter((x) => id === x.id);
     setTotalItemQty((prev) => (prev -= 1));
