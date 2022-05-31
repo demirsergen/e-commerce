@@ -42,6 +42,7 @@ export const ProductsContextProvider = ({ children }) => {
     } else {
       setCart([...cart, { ...product, qty: 1 }]);
       setTotalItemQty((prev) => (prev += 1));
+      alert("Item added to your cart.");
     }
   };
 
