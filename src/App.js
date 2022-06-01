@@ -27,7 +27,7 @@ function App() {
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/register" element={<Register />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </BrowserRouter>
       </AuthContextProvider>

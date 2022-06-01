@@ -24,6 +24,7 @@ const Register = () => {
     <>
       {user === null && (
         <div className="register__wrapper">
+          <h1>Register</h1>
           <div className="register__container">
             <form onSubmit={handleSubmit} className="register__form">
               <div className="input__container">

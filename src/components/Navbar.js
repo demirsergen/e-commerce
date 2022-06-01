@@ -15,11 +15,11 @@ const Navbar = () => {
           <Link to="/">Homepage</Link>
         </div>
         <div className="navbar__right">
-          <Link to="/profile" className={user ? "show" : "hide"}>
-            Profile
-          </Link>
           <Link to="/cart" className="cart__button">
             {`Cart (${cart?.length})`}
+          </Link>
+          <Link to="/profile" className={user ? "show" : "hide"}>
+            Profile
           </Link>
           <Link to="/login" className={user ? "hide" : "show"}>
             Login

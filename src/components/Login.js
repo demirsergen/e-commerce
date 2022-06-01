@@ -24,10 +24,12 @@ const Login = () => {
       navigate("/profile");
     } catch (e) {
       console.log(e.message);
+      alert(e.message);
     }
   };
   return (
     <div className="login__wrapper">
+      <h1>Log in</h1>
       <div className="login__container">
         <form onSubmit={handleLogin} className="login__form">
           <div className="input__container">
