@@ -51,6 +51,7 @@ export const ProductsContextProvider = ({ children }) => {
     if (exist) {
       const newCart = cart.filter((x) => x !== exist);
       setCart(newCart);
+      setTotalItemQty((prev) => (prev -= 1));
     }
   };
 
