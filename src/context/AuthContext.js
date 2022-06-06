@@ -13,8 +13,10 @@ import { setDoc, doc } from "firebase/firestore";
 const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const provider = new GoogleAuthProvider();
+
+  console.log(user);
 
   const createUser = async (email, password) => {
     const newUser = await createUserWithEmailAndPassword(auth, email, password);

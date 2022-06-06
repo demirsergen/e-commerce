@@ -6,7 +6,7 @@ import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import ProductPage from "./components/ProductPage";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import ProfilePage from "./components/ProfilePage";
 
 import { ProductsContextProvider } from "./context/ProductsContext";
@@ -22,11 +22,11 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/cart" element={<Cart />} />
               <Route path="/:id" element={<ProductPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="register" element={<Register />} />
             </Routes>
             {/* <Footer /> */}
           </div>
